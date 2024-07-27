@@ -1,0 +1,131 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3" style="width: 100%;">
+        <img class="w-50 mx-auto d-block" style="max-width: 500px;padding: 50px;padding-top: 14vh;" src="/themes/airoverflow/static/img/hackathon-logo.png" />
+        <h1 class="text-center linear-wipe" style="font-size: 5rem; max-width: 100%;">
+            <p>{{ctf_name}}</p>
+        </h1>
+        <h2 class="text-center" style="text-transform: uppercase;font-size: 25px;">{{ctf_description}}</h2>
+        <div style="width: 100%; margin-left: auto; margin-right: auto; margin-top: -0.5rem; position: relative; ">
+            <div style="position: absolute; left: 50%; transform: translateX(-50%); background: linear-gradient(to right, transparent, #2c67f2, transparent); height: 2px; width: 50%; filter: blur(2px);"></div>
+            <div style="position: absolute; left: 50%; transform: translateX(-50%); background: linear-gradient(to right, transparent, #2c67f2, transparent); height: 1px; width: 50%;"></div>
+            <div style="position: absolute; left: 50%; transform: translateX(-50%); background: linear-gradient(to right, transparent, #62cff4, transparent); height: 5px; width: 25%; filter: blur(2px);"></div>
+            <div style="position: absolute; left: 50%; transform: translateX(-50%); background: linear-gradient(to right, transparent, #62cff4, transparent); height: 1px; width: 25%;"></div>
+        </div>
+        <div class="clock-main">
+            <h2 class="event-time-element" style="font-size: 25px;"></h2>
+            <div class="clock">
+                <section class="days">
+                    <div class="tens"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                    <div class="ones"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                </section>
+                <p class="separator">:</p>
+                <section class="hours">
+                    <div class="tens"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                    <div class="ones"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                </section>
+                <p class="separator">:</p>
+                <section class="mins">
+                    <div class="tens"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                    <div class="ones"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                </section>
+                <p class="separator">:</p>
+                <section class="secs">
+                    <div class="tens"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                    <div class="ones"><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p></div>
+                </section>
+            </div>
+        </div>
+        <h2 class="text-center" style="padding-top: 50px;">
+            <p>Connect with us</p>
+        </h2>
+        <div style="display: flex;justify-content: center;align-items: center;padding-top: 1rem;gap: 30px;">
+            <a href="https://byteboltsec.com"><img class="w-50 mx-auto d-block" style="max-width: 100px;" src="/themes/airoverflow/static/img/web.png" /></a>
+            <a href="https://discord.gg/aA27yvBq"><img class="w-50 mx-auto d-block" style="max-width: 100px;" src="/themes/airoverflow/static/img/discord.png" /></a>
+            <a href="mailto:cc@airoverflow.com"><img class="w-50 mx-auto d-block" style="max-width: 100px;" src="/themes/airoverflow/static/img/mail.png" /></a>
+        </div>
+        <h2 class="text-center" style="margin-top: 100px;">
+            <p>Training held in</p>
+        </h2>
+        <div style="display: flex;justify-content: center;align-items: center;padding-top: 1rem;gap: 30px;">
+            <!-- <img class="w-50 mx-auto d-block" style="max-width: 300px;" src="/themes/airoverflow/static/img/parrot-ctfs.png" />
+            <img class="w-50 mx-auto d-block" style="max-width: 300px;" src="/themes/airoverflow/static/img/burp-bounty-pro.png" />
+            <img class="w-25 mx-auto d-block" style="max-width: 200px;" src="/themes/airoverflow/static/img/digital-ocean.png" />
+            <img class="w-50 mx-auto d-block" style="max-width: 300px;" src="/themes/airoverflow/static/img/lets-defend.png" />  -->
+            <img class="w-50 mx-auto d-block" style="max-width: 300px;" src="/themes/airoverflow/static/img/islamabad.png" />
+        </div>
+        <br>
+    </div>
+</div>
+
+<script>
+    const headingElement = document.querySelector('.event-time-element');
+    const stDate = new Date("{{ ctf_start }}").getTime();
+    const endDate = new Date("{{ ctf_end }}").getTime();
+    // Nixie Clock idea from:
+    // https://github.com/qwerji/nixie-clock
+    function getTime() {
+        function prependZero(n) {
+            return (n < 10) ? `0${n}` : `${n}`;
+        }
+        // Check if `ctf_start` date has passed, then set date to `ctf_end`
+        var now = new Date();
+        var date = NaN;
+        console.log(`END TIME => ${endDate-now}`)
+        if(endDate - now <= 0 ) {
+            headingElement.innerHTML = "EVENT HAS ENDED!";
+            return { days: "00", hours: "00", mins: "00", secs: "00" }
+        } else if(stDate - now <= 0) {
+            date = "{{ ctf_end }}";
+            headingElement.innerHTML = "Event ends in: ";
+        } else {
+            date = "{{ ctf_start }}";
+            headingElement.innerHTML = "Event starts in: ";
+        }
+
+        var countDownDate = new Date(date).getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        return {
+            days: prependZero(days),
+            hours: prependZero(hours),
+            mins: prependZero(minutes),
+            secs: prependZero(seconds)
+        }
+    }
+
+    function setDigits(section, digit) {
+        try {
+            const tens = [...section.children[0].children];
+            const ones = [...section.children[1].children];
+            tens.forEach(number => number.classList.remove('active'));
+            tens[digit[0]].classList.add('active');
+            ones.forEach(number => number.classList.remove('active'));
+            ones[digit[1]].classList.add('active');
+        } catch {}
+    }
+
+    function tick() {
+        const days = document.querySelector('.days');
+        const hours = document.querySelector('.hours');
+        const mins = document.querySelector('.mins');
+        const secs = document.querySelector('.secs');
+        const time = getTime();
+        console.log(`
+            days=${time.days}
+            hours=${time.hours}
+            mins=${time.mins}
+            secs=${time.secs}
+        `);
+        setDigits(days, time.days);
+        setDigits(hours, time.hours);
+        setDigits(mins, time.mins);
+        setDigits(secs, time.secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+</script>

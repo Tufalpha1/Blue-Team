@@ -1,0 +1,55 @@
+/* latin */
+@font-face {
+  font-family: 'Lato-Pub';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u8w4BMUTPHh30AXC-q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.clock-main h2 {
+    font-size: 50px;
+    font-family: "Yapari", cursive;
+}
+
+.clock-main {
+    position: relative;
+    font-family: 'Lato-Pub';
+    font-size: 80px;
+    text-align: center;
+    width: 100%;
+    padding-top: 50px
+}
+
+.clock {
+    color: rgba(50,50,50,0.35) !important;
+    display: block;
+    text-align: center;
+}
+.clock p.separator,
+.clock section {
+    display: inline-block;
+}
+.clock section div p {
+    position: absolute;
+    width: 40px;
+    text-align: center;
+    transition: 0.3s ease color, 0.3s ease text-shadow;
+    color: rgba(50,50,50,0.35) !important;
+}
+.clock p.separator {
+    font-size: 60px;
+    vertical-align: top;
+    margin-top: 17.5px;
+}
+.clock p.separator,
+.clock section p.active {
+    color: #FFE548 !important;
+    text-shadow: 0px 0px 20px #F58732 !important;
+}
+
+.clock section div {
+    display: inline-block;
+    width: 40px;
+    height: 80px;
+}
